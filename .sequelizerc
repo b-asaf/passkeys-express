@@ -1,0 +1,9 @@
+const path = require("path");
+
+// This file overwrites the default paths/locations of the directories that Sequelize expects
+module.exports = {
+  config: path.resolve("config", "database.js"),
+  "models-path": path.resolve("app", "models"),
+  "seeders-path": path.resolve("db", "seeders"),
+  "migrations-path": path.resolve("db", "migrations"),
+};
