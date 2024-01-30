@@ -5,7 +5,7 @@ FROM node:19
 # 2. The name of the project is: app
 WORKDIR /usr/src/app
 
-CMD ["npx", "nodemon", "index.js"]
+CMD ["npx", "nodemon", "-L", "index.js"]
 
 # copy package.json from the HOST inside the Docker container
 COPY package*.json /usr/src/app/
