@@ -2,6 +2,17 @@ const express = require("express");
 
 const router = express.Router();
 
+// Passport
+const PassportService = require("../app/services/passport-service");
+// requires for generating challenges
+const SessionChallengeStore =
+  require("passport-fido2-webauthn").SessionChallengeStore;
+
+const passportService = new PassportService();
+const store = new SessionChallengeStore();
+
+passportService.init(store);
+
 // Controllers
 const admin = new (require("../app/controllers/admin"))();
 const auth = new (require("../app/controllers/auth"))();
