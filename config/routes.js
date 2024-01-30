@@ -3,8 +3,9 @@ const express = require("express");
 const router = express.Router();
 
 // Controllers
-const pages = new (require("../app/controllers/pages"))();
+const admin = new (require("../app/controllers/admin"))();
 const auth = new (require("../app/controllers/auth"))();
+const pages = new (require("../app/controllers/pages"))();
 
 // adding a second action in this route that will be called with
 // `next()` method that is in `pages.welcome` method
