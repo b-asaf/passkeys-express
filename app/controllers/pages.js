@@ -1,7 +1,7 @@
 class PagesController {
   welcome(req, res, next) {
     if (!req.user) {
-      return res.send("Hello Universe");
+      return res.render("../views/pages/welcome.ejs");
     }
 
     next();
