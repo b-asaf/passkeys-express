@@ -6,7 +6,9 @@ const router = express.Router();
 const pages = new (require("../app/controllers/pages"))();
 const auth = new (require("../app/controllers/auth"))();
 
-router.get("/", pages.welcome);
+// adding a second action in this route that will be called with
+// `next()` method that is in `pages.welcome` method
+router.get("/", pages.welcome, admin.dashboard);
 
 router.get("/login", auth.login);
 router.get("/register", auth.register);
