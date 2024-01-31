@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const layouts = require("express-ejs-layouts");
+const multer = require("multer");
+const cookieParser = require("cookie-parser");
 
 const passport = require("passport");
 const session = require("express-session");
@@ -17,6 +19,15 @@ const host = "0.0.0.0";
 const sessionStore = new SequelizeStore({
   db,
 });
+
+// handle data that is submitted in JSON format
+app.use(express.json());
+// middleware for handling multipart/form-data, usually during file upload
+app.use(multer().none());
+// middleware for handling cookies that are used with the sessions
+app.use(cookieParser());
+// extract data that is passed in the URI as query params
+app.use(express.urlencoded({ extended: false }));
 
 // Templates
 app.use(layouts);
