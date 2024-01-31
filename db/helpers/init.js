@@ -5,17 +5,16 @@ class Db {
 
   init() {
     const dbName = process.env.PG_DATABASE;
-    const dbUserName = process.env.PG_USER;
+    const dbUsername = process.env.PG_USER;
     const dbPassword = process.env.PG_PASSWORD;
     const dbHost = process.env.PG_HOST;
     const dbPort = process.env.PG_PORT;
-
-    return new this.Sequelize(dbName, dbUserName, dbPassword, {
+    return new this.Sequelize(dbName, dbUsername, dbPassword, {
       host: dbHost,
       port: dbPort,
-      dialect: "postgresql",
+      dialect: "postgres",
     });
   }
 }
 
-module.exports = new Db.init();
+module.exports = new Db().init();
